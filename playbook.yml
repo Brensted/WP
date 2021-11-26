@@ -1,0 +1,14 @@
+---
+  - hosts: all
+    vars:
+      microk8s_enable_HA: true
+      users:
+        - brensted
+    become: yes
+    roles:
+      - role: microk8s
+        vars:
+           microk8s_plugins:
+             dns: "8.8.8.8"
+             istio: true
+             ingress: true
